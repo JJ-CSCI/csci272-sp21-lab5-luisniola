@@ -5,8 +5,45 @@
 //------------------------------
 
 // Write the assignment code here
+class Real{
+  private:
+  double re;
 
+  public:
+  Real(double a) : re{a}{}
+  double GetReal()const {return re;}
+  Real operator *(double n)const {
+      Real r(re*n);
+      return r;
+  }
+};
 
+class Complex : public Real{
+  private:
+  double im;
+ 
+  public:
+  Complex(double x, double y) : Real(x),im{y}{}
+  double GetImaginary()const {return im;}
+  Complex operator* (double n)const {
+     Complex r(GetReal()*n,GetImaginary()*n);
+      return r;
+  }
+};
+
+class Surreal : public Complex{
+  private:
+  double sur;
+  
+  public:
+  Surreal(double x, double y, double z) : Complex(x,y),sur{z}{}
+  double GetSurreal()const {return sur;}
+  Surreal operator* (double n){
+      Surreal r(GetReal()*n,GetImaginary()*n,GetSurreal()*n);
+      return r;
+    
+  }
+};
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
