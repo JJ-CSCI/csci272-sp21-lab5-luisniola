@@ -5,8 +5,23 @@
 //------------------------------
 
 // Write the assignment code here
+class Real{
+  private:
+  int x;
+  public:
+  Real(int& m) : x{m};
+  int GetReal()const {return x};
+  operator& *(Complex& n) const{
+    n.x *= x;
+  }
+};
 
-
+class Complex{
+  private:
+  int a;
+  int b;
+  public:
+}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
